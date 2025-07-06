@@ -20,13 +20,13 @@ extension ItemType {
     func fontSize(forDepth depth: Int = 0) -> CGFloat {
         switch self {
         case .page:
-            return 46
+            return 48
         case .section:
-            return 38 - CGFloat(depth * 2) // Decrease slower ATE UM CERTO PONTO?
+            return max(18, 40 - CGFloat(depth * 2))
         case .text:
-            return 20
+            return 16
         case .image:
-            return 26
+            return 18
         }
     }
 

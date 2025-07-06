@@ -24,14 +24,18 @@ struct ItemsComponentView: View {
                 PageComponentView(page: item, depth: depth + 1, action: action)
                     .id(item?.scrollId(at: depth).id)
                     .padding(.leading, CGFloat(depth) * Constants.spacing)
+                    .padding(.bottom, Constants.spacing)
             case .section:
                 SectionComponentView(section: item, depth: depth + 1, action: action)
                     .id(item?.scrollId(at: depth).id)
                     .padding(.leading, CGFloat(depth) * Constants.spacing)
+                    .padding(.bottom, Constants.spacing)
+
             default:
                 QuestionsComponentView(question: item, type: item?.type?.questionType, depth: depth + 1, action: action)
                     .id(item?.scrollId(at: depth).id)
                     .padding(.leading, CGFloat(depth) * Constants.spacing)
+                    .padding(.bottom, Constants.spacing)
             }
         }
     }

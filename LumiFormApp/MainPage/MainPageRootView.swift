@@ -34,6 +34,7 @@ struct MainPageRootView: View {
                 withAnimation {
                     proxy.scrollTo(targetId, anchor: .top)
                 }
+                scrollState.scrollToId = nil
             }
         }
     }
