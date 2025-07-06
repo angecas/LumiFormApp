@@ -13,14 +13,14 @@ enum ToasterType {
 
     var defaultTitle: String {
         switch self {
-        case .informative: return NSLocalizedString("Info", comment: "")
-        case .error: return NSLocalizedString("Error", comment: "")
+        case .informative: return NSLocalizedString("info", comment: "")
+        case .error: return NSLocalizedString("error", comment: "")
         }
     }
     
     var defaultMessage: String {
         switch self {
-        case .informative: return NSLocalizedString("Operation completed successfully.", comment: "")
+        case .informative: return NSLocalizedString("some_operation", comment: "")
         case .error: return NSLocalizedString("some_error", comment: "" )
         }
     }

@@ -9,8 +9,6 @@ import UIKit
 
 class TabCoordinator: TabBarCoordinator {
     enum Constants {
-        static let firstTabTitle: String = "Content"
-        static let secondTabTitle: String = "Table"
         static let firstTabImage: String = "text.line.first.and.arrowtriangle.forward"
         static let secondTabImage: String = "list.triangle"
     }
@@ -41,8 +39,8 @@ class TabCoordinator: TabBarCoordinator {
         childCoordinators.append(mainPageCoordinator)
         childCoordinators.append(contentsCoordinator)
 
-        mainPageNavigationController.tabBarItem = UITabBarItem(title: Constants.firstTabTitle, image: UIImage(systemName: Constants.firstTabImage), tag: 0)
-        contentsNavigationController.tabBarItem = UITabBarItem(title: Constants.secondTabTitle, image: UIImage(systemName: Constants.secondTabImage), tag: 1)
+        mainPageNavigationController.tabBarItem = UITabBarItem(title: NSLocalizedString("content", comment: ""), image: UIImage(systemName: Constants.firstTabImage), tag: 0)
+        contentsNavigationController.tabBarItem = UITabBarItem(title: NSLocalizedString("table", comment: ""), image: UIImage(systemName: Constants.secondTabImage), tag: 1)
 
         tabBarController.viewControllers = [mainPageNavigationController, contentsNavigationController]
     }

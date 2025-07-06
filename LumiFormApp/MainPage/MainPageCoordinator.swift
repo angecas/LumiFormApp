@@ -8,9 +8,6 @@
 import UIKit
 
 class MainPageCoordinator: Coordinator {
-    enum Constants {
-        static let title: String = "Content"
-    }
 
     var navigationController: UINavigationController
     let scrollState: ScrollState
@@ -24,7 +21,7 @@ class MainPageCoordinator: Coordinator {
 
     func start() {
         let mainViewController = MainViewControllerFactory.makeMainViewScreen(scrollState: scrollState, coordinator: self)
-        mainViewController.title = Constants.title
+        mainViewController.title = NSLocalizedString("some_operation", comment: "")
         navigationController.pushViewController(mainViewController, animated: true)
     }
     

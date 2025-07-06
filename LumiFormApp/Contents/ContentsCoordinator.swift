@@ -8,9 +8,6 @@
 import UIKit
 
 class ContentsCoordinator: Coordinator {
-    enum Constants {
-        static let title: String = "Table of Contents"
-    }
 
     var navigationController: UINavigationController
     
@@ -24,7 +21,7 @@ class ContentsCoordinator: Coordinator {
 
     func start() {
         let contentsController = ContentsFactory.makeContentsScreen(scrollState: scrollState, coordinator: self)
-        contentsController.title = Constants.title
+        contentsController.title = NSLocalizedString("table_contents", comment: "")
         navigationController.pushViewController(contentsController, animated: true)
     }
 }
