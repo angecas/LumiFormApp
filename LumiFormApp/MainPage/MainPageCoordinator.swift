@@ -21,7 +21,7 @@ class MainPageCoordinator: Coordinator {
 
     func start() {
         let mainViewController = MainViewControllerFactory.makeMainViewScreen(scrollState: scrollState, coordinator: self)
-        mainViewController.title = NSLocalizedString("some_operation", comment: "")
+        mainViewController.title = NSLocalizedString("content", comment: "")
         navigationController.pushViewController(mainViewController, animated: true)
     }
     
