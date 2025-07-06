@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Flight Service Protocol
 protocol FetchServiceProtocol {
-    func getData() async throws -> Item
+    func getData() async throws -> Item?
 }
 
 // MARK: - Flight Service Implementation
@@ -21,7 +21,7 @@ final class DataService: FetchServiceProtocol {
         self.client = client
     }
     
-    func getData() async throws -> Item {
+    func getData() async throws -> Item? {
         try await client.performRequest(DataEndpoint.getData)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FetchDataDataSourceProtocol {
-    func getData() async throws -> Item
+    func getData() async throws -> Item?
     func getContentData() async throws -> [ScrollItem]
 }
 
@@ -21,19 +21,21 @@ final class FetchDataDataSource: FetchDataDataSourceProtocol {
         self.fetchService = fetchService
     }
 
-    func getData() async throws -> Item {
+    func getData() async throws -> Item? {
         if let cached = try? cache.load() {
             return cached
         }
 
-        let items = try await fetchService.getData()
-        try? cache.save(items)
-        return items
+        if let items = try await fetchService.getData() {
+            try? cache.save(items)
+            return items
+        } else { return nil }
     }
 
     func getContentData() async throws -> [ScrollItem] {
         let items = try await getData()
-        let scrollItems = items.getAllScrollIds()
-        return scrollItems
+        if let scrollItems = items?.getAllScrollIds() {
+            return scrollItems
+        } else { return [] }
     }
 }

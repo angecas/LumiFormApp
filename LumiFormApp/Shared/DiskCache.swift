@@ -29,7 +29,12 @@ struct DiskCache<T: Codable> {
         let data = try JSONEncoder().encode(value)
         try data.write(to: fileURL, options: [.atomicWrite])
     }
-
+    
+    func clear() throws {
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            try FileManager.default.removeItem(at: fileURL)
+        }
+    }
     func exists() -> Bool {
         FileManager.default.fileExists(atPath: fileURL.path)
     }

@@ -25,6 +25,6 @@ final class ContentsViewModel {
     }
     
     func fetchData() async throws {
-        contents = try await fetchDataDataSource.getContentData()        
+        contents = try await fetchDataDataSource.getContentData()
     }
 }

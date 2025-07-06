@@ -25,7 +25,7 @@ class MainPageCoordinator: Coordinator {
     func start() {
         let mainViewController = MainViewControllerFactory.makeMainViewScreen(scrollState: scrollState, coordinator: self)
         mainViewController.title = Constants.title
-        navigationController.viewControllers = [mainViewController]
+        navigationController.pushViewController(mainViewController, animated: true)
     }
     
     func showQuestionImage(item: Item) {

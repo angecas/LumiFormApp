@@ -37,5 +37,6 @@ struct MainPageRootView: View {
                 scrollState.scrollToId = nil
             }
         }
+        .accessibilityIdentifier("itemsComponentView")
     }
 }

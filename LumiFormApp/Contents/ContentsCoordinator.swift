@@ -23,8 +23,8 @@ class ContentsCoordinator: Coordinator {
     }
 
     func start() {
-        let mainViewController = ContentsFactory.makeContentsScreen(scrollState: scrollState, coordinator: self)
-        mainViewController.title = Constants.title
-        navigationController.viewControllers = [mainViewController]
+        let contentsController = ContentsFactory.makeContentsScreen(scrollState: scrollState, coordinator: self)
+        contentsController.title = Constants.title
+        navigationController.pushViewController(contentsController, animated: true)
     }
 }
