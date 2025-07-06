@@ -1,0 +1,35 @@
+//
+//  MainPageCoordinator.swift
+//  LumiFormApp
+//
+//  Created by Angélica Rodrigues on 04/07/2025.
+//
+
+import UIKit
+
+class MainPageCoordinator: Coordinator {
+    enum Constants {
+        static let title: String = "Content"
+    }
+
+    var navigationController: UINavigationController
+    let scrollState: ScrollState
+
+    var loadingOverlay: UIView?
+    
+    init(navigationController: UINavigationController, scrollState: ScrollState) {
+        self.navigationController = navigationController
+        self.scrollState = scrollState
+    }
+
+    func start() {
+        let mainViewController = MainViewControllerFactory.makeMainViewScreen(scrollState: scrollState, coordinator: self)
+        mainViewController.title = Constants.title
+        navigationController.viewControllers = [mainViewController]
+    }
+    
+    func showQuestionImage(item: Item) {
+        let questionImageCoordinator = QuestionCoordinator(item: item, navigationController: navigationController)
+        questionImageCoordinator.start()
+    }
+}
