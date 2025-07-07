@@ -1,5 +1,5 @@
 
-**LumiFormApp** is an iOS application that helps users easily search and navigate through custom data by selecting specific origin.
+**LumiFormApp** is an iOS application that helps users easily search and navigate through custom data.
 
 ---
 
